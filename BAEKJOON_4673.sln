@@ -1,25 +1,79 @@
-﻿
-Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Version 16
-VisualStudioVersion = 16.0.31702.278
-MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BAEKJOON_4673", "BAEKJOON_4673.csproj", "{A2E272A2-A4F7-4929-A503-678B62966773}"
-EndProject
-Global
-	GlobalSection(SolutionConfigurationPlatforms) = preSolution
-		Debug|Any CPU = Debug|Any CPU
-		Release|Any CPU = Release|Any CPU
-	EndGlobalSection
-	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{A2E272A2-A4F7-4929-A503-678B62966773}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{A2E272A2-A4F7-4929-A503-678B62966773}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{A2E272A2-A4F7-4929-A503-678B62966773}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{A2E272A2-A4F7-4929-A503-678B62966773}.Release|Any CPU.Build.0 = Release|Any CPU
-	EndGlobalSection
-	GlobalSection(SolutionProperties) = preSolution
-		HideSolutionNode = FALSE
-	EndGlobalSection
-	GlobalSection(ExtensibilityGlobals) = postSolution
-		SolutionGuid = {25C18C86-95CA-49DE-9C67-4ECE0A325914}
-	EndGlobalSection
-EndGlobal
+using System;
+using System.Text;
+
+namespace BAEKJOON_4673
+{
+    class Program
+    {
+        //    n     d(n)    nextNumbers[n] = d(n)    hasConstructors[d(n)]
+        // --------------------------------------------------------------------
+        //    1        2     nextNumbers[ 1] =  2    hasConstructors[ 2] = true
+        //    2        4     nextNumbers[ 2] =  4    hasConstructors[ 4] = true
+        //    4        8     nextNumbers[ 4] =  8    hasConstructors[ 8] = true
+        //    8       16     nextNumbers[ 8] = 16    hasConstructors[16] = true
+        //   16       23     nextNumbers[16] = 23    hasConstructors[23] = true
+        //  ...      ...                      ...                           ...
+
+        private const int MAX_NUMBER = 10000;
+
+        private static int[] nextNumbers = new int[MAX_NUMBER];
+        private static bool[] hasConstructors = new bool[MAX_NUMBER];
+
+        static void Main()
+        {
+            for (int i = 1; i < MAX_NUMBER; i++)
+            {
+                // i부터 시작해서 연달아 self number를 구하고 nextNumbers, hasConstructors 배열에 기록
+                CheckSelfNumbers(i);
+            }
+
+            // 결과 출력
+            StringBuilder sb = new StringBuilder();
+            for (int i = 1; i < MAX_NUMBER; i++)
+            {
+                if (hasConstructors[i] == false)
+                {
+                    sb.AppendLine(i.ToString());
+                }
+            }
+
+            Console.WriteLine(sb.ToString());
+        }
+
+        private static void CheckSelfNumbers(int n)
+        {
+            while (true)
+            {
+                int nextNumber = GetSelfNumber(n);
+
+                // SelfNumber가 최대값 이상이면 체크를 종료.
+                if (nextNumber >= MAX_NUMBER) return;
+
+                // n의 다음 SelfNumber 기록.
+                nextNumbers[n] = nextNumber;
+
+                // nextNumber의 생성자 유무 체크
+                if (nextNumber < MAX_NUMBER)
+                {
+                    hasConstructors[nextNumber] = true;
+                }
+
+                n = nextNumber;
+            }
+        }
+
+        private static int GetSelfNumber(int n)
+        {
+            int result = n;
+
+            while (n > 0)
+            {
+                int digit = n % 10;
+                result += digit;
+                n /= 10;
+            }
+
+            return result;
+        }
+    }
+}
