@@ -7,48 +7,36 @@ namespace BAEKJOON_1193
     {
         static void Main(string[] args)
         {
-            int[] arr1 = 0;
-            int[] arr2 = 0;
+            int num = int.Parse(ReadLine());
 
+            int[] arr1 = new int[num];
+            int[] arr2 = new int[num];
 
-
-            for (int i = 1; i < num; i++)
+            for (int i = 1; i < num+1; i++)  // 분자
             {
                 for (int j = i; j <= i; j--)
                 {
                     if (j >= 1)
                     {
-                        for (int a = 0; a < num; a++)
+                        for (int a = 0; a < num+1; a++)
                         {
                             arr1[a] = j;
                         }
                     }
-
                 }
-                return arr1[num-1];
             }
-;
-
             
-
-                for (int k = 1; k < num; k++)
+            for (int k = 1; k < num+1; k++)  // 분모
+            {
+                for (int l = 1; l < k + 1; l++)
                 {
-                    for (int l = 1; l < k + 1; l++)
+                    for (int b = 0; b < num+1; b++)
                     {
-                        for (int b = 0; b < num; b++)
-                        {
-                            arr2[b] = l;
-                        }
+                        arr2[b] = l;
                     }
-                    return arr2[num-1];
                 }
-
-                
-
-            int num = int.Parse(ReadLine());
-
-            Console.WriteLine($"(arr1[num-1])/(arr2[num-1])");
-            
+            }
+            Console.WriteLine($"{arr1[num-1]}/{arr2[num-1]}");
         }
     }
 }
