@@ -1,0 +1,43 @@
+using System;
+
+namespace BAEKJOON_1193
+{
+    class Program
+    {
+        static void Main()
+        {
+            int n = int.Parse(Console.ReadLine());
+
+            int lineNum = 0;
+            int total = 0;
+
+            // 몇번째 라인인지 구함
+            while (true)
+            {
+                lineNum++;
+                total += lineNum;
+
+                if (total >= n) break;
+            }
+
+            // 라인에서 몇번째로 등장하는지 구함
+            int seq = n - (total - lineNum);
+
+            // 라인번호에 따라 
+            //   짝수: 분자가 증가하는 방향 (a/b)
+            //   홀수: 분모가 증가하는 방향 (b/a)
+
+            int a = seq;
+            int b = lineNum + 1 - seq;
+
+            if (lineNum % 2 == 0)
+            {
+                Console.WriteLine($"{a}/{b}");
+            }
+            else
+            {
+                Console.WriteLine($"{b}/{a}");
+            }
+        }
+    }
+}
