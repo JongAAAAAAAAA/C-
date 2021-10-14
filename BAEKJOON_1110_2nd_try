@@ -1,0 +1,68 @@
+using System;
+
+namespace BAEKJOON_1110
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            int N = int.Parse(Console.ReadLine());
+
+            int first_num;
+            int second_num;
+            int next_num;
+            int sum_num;
+            int cnt=0;
+
+            while (true)
+            {
+                cnt++;
+
+                if (N < 10)
+                {
+                    first_num = N;
+                }
+                else
+                {
+                    first_num = N / 10;
+                }
+
+
+                second_num = N % 10;
+
+                if (N < 10)
+                {
+                    sum_num = first_num * 10 + first_num;
+                }
+                else
+                {
+                    sum_num = first_num * 10 + second_num;
+                }
+
+                
+
+                if (sum_num < 10)
+                {
+                    next_num = second_num * 10 + sum_num;
+                }
+                else if (sum_num % 10 == 0)
+                {
+                    next_num = second_num * 10;
+                }
+                else
+                {
+                    next_num = second_num * 10 + sum_num % 10;
+                }
+
+                if (N == next_num)
+                    break;
+                else
+                {
+                    N = next_num;
+                }
+            }
+
+            Console.WriteLine(cnt);
+        }
+    }
+}
