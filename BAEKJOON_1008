@@ -1,0 +1,19 @@
+using System;
+
+namespace BAEKJOON_1008
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            string[] arr = Console.ReadLine().Split(' ');
+
+            double A = double.Parse(arr[0]);
+            double B = double.Parse(arr[1]);
+
+            double C = (A / B);
+
+            Console.WriteLine(C);
+        }
+    }
+}
