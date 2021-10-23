@@ -1,0 +1,23 @@
+using System;
+
+namespace BAEKJOON_2588
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            int A = int.Parse(Console.ReadLine());
+            int B = int.Parse(Console.ReadLine());
+
+            int first = B % 100 % 10;
+            int second = B % 100 / 10;
+            int third = B / 100;
+
+            Console.WriteLine(A * first);
+            Console.WriteLine(A * second);
+            Console.WriteLine(A * third);
+            Console.WriteLine(A * B);
+
+        }
+    }
+}
