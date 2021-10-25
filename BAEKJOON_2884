@@ -1,0 +1,32 @@
+using System;
+
+namespace BAEKJOON_2884
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            string[] arr = Console.ReadLine().Split(' ');
+
+            int H = int.Parse(arr[0]);
+            int M = int.Parse(arr[1]);
+
+            if (M >= 45)
+            {
+                M -= 45;
+            }
+            else if (H == 0)
+            {
+                H = 23;
+                M = (M + 15);
+            }
+            else
+            {
+                H -= 1;
+                M = (M + 15);
+            }
+            Console.WriteLine($"{H} {M}");
+            
+        }
+    }
+}
