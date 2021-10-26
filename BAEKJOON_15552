@@ -1,0 +1,27 @@
+using System;
+using System.Text;
+
+namespace BAEKJOON_15552
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            //StreamReader로 읽고, StringBuilder로 출력을 모아 놓았다가 그 String을 Console.WriteLine하는 방법이 있습니다.
+            int T = int.Parse(Console.ReadLine());
+            int[] a = new int[T];
+            int[] b = new int[T];
+            StringBuilder Num = new StringBuilder();
+
+            for (int i = 0; i < T; i++)
+            {
+                string[] numbers = Console.ReadLine().Split(' ');
+                a[i] = int.Parse(numbers[0]);
+                b[i] = int.Parse(numbers[1]);
+                Num.Append(a[i]+b[i]+"\n");
+                
+            }
+            Console.WriteLine(Num);
+        }
+    }
+}
