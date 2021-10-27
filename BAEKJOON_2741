@@ -1,0 +1,19 @@
+using System;
+using System.Text;
+
+namespace BAEKJOON_2741
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            int A = int.Parse(Console.ReadLine());
+            StringBuilder B = new StringBuilder();
+            for(int i = 1; i <= A; i++)
+            {
+                B.Append(i+"\n");
+            }
+            Console.WriteLine(B);
+        }
+    }
+}
