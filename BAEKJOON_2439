@@ -1,0 +1,25 @@
+using System;
+
+namespace BAEKJOON_2439
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            int N = int.Parse(Console.ReadLine());
+
+            for(int j = 0; j < N; j++)
+            {
+                for (int i = 0; i < N-j-1; i++)
+                {
+                    Console.Write(" ");
+                }
+                for (int i = 0; i < j + 1; i++)
+                {
+                    Console.Write("*");
+                }
+                Console.WriteLine();
+            }
+        }
+    }
+}
