@@ -1,0 +1,26 @@
+using System;
+
+namespace BAEKJOON_10951
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+
+            while (true)
+            {
+                string arr = Console.ReadLine();
+                if (arr == null) break;
+
+                string[] num = arr.Split();
+                
+                int A = int.Parse(num[0]);
+                int B = int.Parse(num[1]);
+
+                Console.WriteLine(A+B);
+
+            }
+            
+        }
+    }
+}
