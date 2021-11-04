@@ -1,0 +1,35 @@
+using System;
+
+namespace BAEKJOON_3052
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            int[] N = new int[10];
+            int[] R = new int[10];
+            int cnt = 0;
+            int err = 0;
+
+            for (int i = 0; i < 10; i++)
+            {
+                N[i] = int.Parse(Console.ReadLine());
+                R[i] = N[i] % 42;
+            }
+            for (int j = 0; j < 10; j++)
+            {
+                for(int k = j; k < 9; k++)
+                {
+                    if (R[j] == R[k+1])
+                    {
+                        err++;
+                    }
+                }
+                if (err == 0)
+                    cnt++;
+                err = 0;
+            }
+            Console.WriteLine(cnt);
+        }
+    }
+}
