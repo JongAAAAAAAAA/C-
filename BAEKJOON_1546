@@ -1,0 +1,29 @@
+using System;
+
+namespace BAEKJOON_1546
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            int N = int.Parse(Console.ReadLine());
+            int[] T = new int[N];
+            double[] NT = new double[N];
+            int M = 0;
+
+            for(int i = 0; i < N; i++)
+            {
+                T[i] = int.Parse(Console.ReadLine());
+                if (T[i] >= M)
+                {
+                    M = T[i];
+                }
+            }
+            for (int j=0; j<N; j++)
+            {
+                NT[j] = (double)T[j] / M * 100;
+            }
+            Console.WriteLine((NT[0]+NT[1]+NT[2])/N);
+        }
+    }
+}
