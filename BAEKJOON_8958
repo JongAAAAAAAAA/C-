@@ -1,0 +1,42 @@
+using System;
+using System.Text;
+
+namespace BAEKJOON_8958
+{
+    class Program
+    {
+        static void Main()
+        {
+            int n = int.Parse(Console.ReadLine());
+            string[] testCase = new string[n];
+
+            for (int i = 0; i < n; i++)
+            {
+                testCase[i] = Console.ReadLine();
+                char[] temp = testCase[i].ToCharArray();
+                int j = 0;
+                int resultScore = 0;
+                int score = 0;
+
+                while (true)
+                {
+                    if (temp[j].ToString() == "O")
+                    {
+                        score++;
+                        resultScore += score;
+                    }
+                    else
+                    {
+                        score = 0;
+                    }
+
+                    j++;
+
+                    if (j == temp.Length) break;
+                }
+
+                Console.WriteLine(resultScore);
+            }
+        }
+    }
+}
