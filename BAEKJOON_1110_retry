@@ -1,0 +1,30 @@
+using System;
+
+namespace BAEKJOON_1110_retry
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            int N = int.Parse(Console.ReadLine());
+            int cnt = 0;
+
+            if (N < 10) N *= 10;
+            int RN = N;
+
+            while (true)
+            {
+                cnt++;
+
+                int fn = N / 10;
+                int sn = N % 10;
+                int sum = fn + sn;
+
+                N = sn * 10 + (sum % 10);
+
+                if (RN == N) break;
+            }
+            Console.WriteLine(cnt);
+        }
+    }
+}
