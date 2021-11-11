@@ -1,0 +1,38 @@
+using System;
+
+namespace BAEKJOON_4344
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            int C = int.Parse(Console.ReadLine());
+            int N = int.Parse(Console.ReadLine());
+            int[] score = new int[N];
+            int over = 0;
+
+            int sum = 0;
+            
+            for(int i = 0; i < C; i++)
+            {
+                for (int j = 0; j < N; j++)
+                {
+                    score[j] = int.Parse(Console.ReadLine());
+                    sum += score[j];
+                }
+
+                int avg = sum / N;
+
+                for (int j = 0; j < N; j++)
+                {
+                    if (score[j] > avg)
+                    {
+                        over++;
+                    }
+                }
+                float ratio = (float)over / (float)N;
+                Console.WriteLine($"{ratio*100.000:F3}%");
+            }
+        }
+    }
+}
