@@ -1,0 +1,13 @@
+using System;
+
+namespace BAEKJOON_11654
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            int ASCII = Console.Read();
+            Console.WriteLine(ASCII);
+        }
+    }
+}
