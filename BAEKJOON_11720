@@ -1,0 +1,32 @@
+using System;
+//using System.Text;
+
+namespace BAEKJOON_11720
+{
+    class MainApp
+    {
+        static void Main()
+        {
+            int N = int.Parse(Console.ReadLine());
+            string str = Console.ReadLine();
+
+            //StringBuilder sb = new StringBuilder();
+            int sum = 0;
+
+            /*sb.Append(Console.ReadLine());
+
+            for(int i = 0; i < sb.Length; i++)
+            {
+                sum += sb[i];
+            }
+            */
+
+            for(int i = 0; i < str.Length; i++)
+            {
+                sum += int.Parse(str[i].ToString());
+            }
+
+            Console.WriteLine(sum);
+        }
+    }
+}
