@@ -1,0 +1,46 @@
+using System;
+
+namespace BAEKJOON_10809
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            string S = Console.ReadLine();
+            int[] A = new int[26];
+            int ASCII = 97;
+            int ToASCII = 0;
+
+            for (int i = 0; i < 26; i++)
+            {
+                A[i] = -1;
+            }
+
+            S.ToCharArray();
+
+            for (int i=0; i < A.Length; i++)
+            {
+                if (i < S.Length)
+                {
+                    ToASCII = S[i];
+                    for (int j = 0; j < i; j++)
+                    {
+                        if (S[i] == S[j])
+                        {
+                            ToASCII = 0;
+                        }
+                    }
+                }
+                if (97 <= ToASCII && ToASCII <= 122)
+                {
+                    A[ToASCII-ASCII] = i;
+                }
+                ToASCII = 0;
+            }
+            for (int i = 0; i < A.Length; i++)
+            {
+                Console.Write(A[i] + " ");
+            }   
+        }
+    }
+}
