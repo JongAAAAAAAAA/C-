@@ -1,0 +1,25 @@
+using System;
+using System.Linq;
+using static System.Console;
+
+namespace BAEKJOON_2908
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            // 띄어쓰기를 기준으로 배열에 넣어줌
+            string[] input = ReadLine().Split();
+
+            // 입력받은 값을 Reverse() 메소드를 이용해 뒤집어줌
+            string reverse1 = new string(input[0].ToCharArray().Reverse().ToArray());
+            string reverse2 = new string(input[1].ToCharArray().Reverse().ToArray());
+
+            // 어떤게 큰지 판단 후 출력
+            if (int.Parse(reverse1) > int.Parse(reverse2))
+                WriteLine(reverse1);
+            else
+                WriteLine(reverse2);
+        }
+    }
+}
