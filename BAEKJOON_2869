@@ -1,0 +1,20 @@
+using System;
+
+namespace BAEKJOON_2869
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            int A, B, V, Score;
+
+            A = int.Parse(Console.ReadLine());
+            B = int.Parse(Console.ReadLine());
+            V = int.Parse(Console.ReadLine());
+
+            Score = (V - B - 1) / (A - B) + 1;
+
+            Console.WriteLine(Score);
+        }
+    }
+}
